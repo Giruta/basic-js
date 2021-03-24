@@ -85,6 +85,8 @@ describe('Transform array', () => {
 
             Object.values(cases).forEach(currCase => {
                 const { input, output } = currCase;
+                // console.log('input1 == ', input);
+                // console.log('output1 == ', output);
                 assert.deepStrictEqual(transform(input), output);
             });
         });
@@ -92,6 +94,8 @@ describe('Transform array', () => {
         it.optional('control sequences work properly', () => {
             for(let i = 0; i < 50; i += 1) {
                 const { input, output } = createSample(i);
+                console.log('input == ', input);
+                console.log('output == ', output);
                 assert.deepStrictEqual(transform(input), output);
             }   
         });
@@ -101,10 +105,10 @@ describe('Transform array', () => {
                 const { input } = createSample(i);
                 const inputCopy = [...input];
                 transform(input);
+                //console.log('input2 == ', input);
                 assert.deepStrictEqual(input, inputCopy);
             }
         });
 
     });
 });
-
